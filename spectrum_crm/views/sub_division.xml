@@ -1,0 +1,47 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="spectrum_crm.sub_division_list">
+      <field name="name">sub_division list</field>
+      <field name="model">sub_division.crm</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="spectrum_crm.sub_division_action_window">
+      <field name="name">sub_division_crm window</field>
+      <field name="res_model">sub_division.crm</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+<record id="spectrum_crm_form" model="ir.ui.view">
+            <field name="name">sub_spectrum_crm.form</field>
+            <field name="model">sub_division.crm</field>
+            <field name="arch" type="xml">
+                <form string="sub_division crm">
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+
+    <!-- menu categories -->
+
+
+    <!-- actions -->
+
+    <menuitem name="Sub Program" id="spectrum_crm.sub_division_menu_1_list" parent="spectrum_crm.menu_1"
+              action="spectrum_crm.sub_division_action_window"/>
+    
+  </data>
+</odoo>

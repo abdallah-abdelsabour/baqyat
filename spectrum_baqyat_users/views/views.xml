@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="spectrum_baqyat_users.list">
+      <field name="name">spectrum_baqyat_users list</field>
+      <field name="model">spectrum_baqyat_users.spectrum_baqyat_users</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="spectrum_baqyat_users.action_window">
+      <field name="name">spectrum_baqyat_users window</field>
+      <field name="res_model">spectrum_baqyat_users.spectrum_baqyat_users</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="spectrum_baqyat_users.action_server">
+      <field name="name">spectrum_baqyat_users server</field>
+      <field name="model_id" ref="model_spectrum_baqyat_users_spectrum_baqyat_users"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="spectrum_baqyat_users" id="spectrum_baqyat_users.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="spectrum_baqyat_users.menu_1" parent="spectrum_baqyat_users.menu_root"/>
+    <menuitem name="Menu 2" id="spectrum_baqyat_users.menu_2" parent="spectrum_baqyat_users.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="spectrum_baqyat_users.menu_1_list" parent="spectrum_baqyat_users.menu_1"
+              action="spectrum_baqyat_users.action_window"/>
+    <menuitem name="Server to list" id="spectrum_baqyat_users" parent="spectrum_baqyat_users.menu_2"
+              action="spectrum_baqyat_users.action_server"/>
+-->
+  </data>
+</odoo>

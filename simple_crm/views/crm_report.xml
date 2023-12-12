@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+        <!--  list view-->
+
+
+        <record id="spectrum_custome_report_id_new" model="ir.ui.view">
+            <field name="name">spectrum.report</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="replace">
+                    <tree>
+
+
+                        <field name="name" string="Opportunity"/>
+                        <field name="phone" string="phone" optional="show"/>
+                        <field name="donation_type" string="Donation Type" optional="show"/>
+                        <field name="division" string="division" optional="hide"/>
+                        <field name="sub_division" string="sub division" optional="hide"/>
+                        <!--                        <field name="total_donation" string="Total Donation" optional="show"/>-->
+                        <field name="user_id" string="Salesperson" widget="many2one_avatar_user" optional="show"
+                               domain="[('share', '=', False)]"/>
+                        <field name="stage_id" string="Stage" optional="show"/>
+                        <field name="total_donation" string="Total donation" optional="show"/>
+                        <!--                        <field name="donation_type" optional="show"/>-->
+                        <field name="cash_amount" optional="show"/>
+                        <field name="expected_donation" optional="show"/>
+                        <field name="diffrence_expected" optional="hide"
+                               decoration-danger="diffrence_expected &lt; 0 and stage_id == 3  "
+                               decoration-success="diffrence_expected &gt; 1 and stage_id == 3 "
+                               decoration-info="stage_id != 3 "/>
+                        <field name="cheque_amount" optional="show"/>
+                        <field name="in_kind_donation_value" optional="show" string="inkind value"/>
+                        <field name="in_kind_donation" optional="show"/>
+
+                        <!--                        from 14- optional="hide"-->
+                        <field name="d_electricty" optional="hide"/>
+                        <field name="d_celling" optional="hide"/>
+                        <field name="d_drainage" optional="hide"/>
+                        <field name="d_Blankets" optional="hide"/>
+                        <field name="d_food" optional="hide"/>
+                        <field name="d_marriage" optional="hide"/>
+                        <field name="d_water" optional="hide"/>
+                        <field name="d_Orphan" optional="hide"/>
+                        <field name="d_redemption"/>
+                        <field name="d_Shrouds" optional="hide"/>
+                        <field name="d_Gaza" optional="hide"/>
+
+                    </tree>
+                </xpath>
+            </field>
+
+        </record>
+
+
+    </data>
+</odoo>

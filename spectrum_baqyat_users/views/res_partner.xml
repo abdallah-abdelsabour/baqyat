@@ -1,0 +1,30 @@
+<odoo>
+
+
+
+<!-- <record id="view_res_partner_list_inherit" model="ir.ui.view">
+    <field name="name">res.partner.list.inherit</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_simple_form"/>
+    <field name="arch" type="xml">
+        <tree search="[('is_company','=',True)]">
+            <field name="name"/>
+            <field name="phone"/>
+            <field name="email"/>
+        </tree>
+    </field>
+</record> -->
+
+<!-- <record id="view_res_partner_kanban_inherit" model="ir.ui.view">
+    <field name="name">res.partner.kanban.inherit</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//kanban" position="attributes">
+            <attribute name="default_group_by">category_id</attribute>
+        </xpath>
+    </field>
+    <field name="context">{'search_default_no_contacts': True}</field>
+</record> -->
+
+</odoo>

@@ -1,0 +1,34 @@
+<odoo>
+  <data>
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="simple_crm.in_kind_donation_window">
+      <field name="name">in_kind_donation window</field>
+      <field name="res_model">in.kind.donation</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+<record id="in_kind_donation_form" model="ir.ui.view">
+            <field name="name">in_kind_donation.form</field>
+            <field name="model">in.kind.donation</field>
+            <field name="arch" type="xml">
+                <form string="in_kind_donation crm">
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+
+    <!-- menu categories -->
+
+
+    <!-- actions -->
+
+    <menuitem name="in kind donation" id="simple_crm.in_kind_donation_list" parent="crm.crm_config_settings_menu"
+              action="simple_crm.in_kind_donation_window"/>
+    
+  </data>
+</odoo>

@@ -1,0 +1,34 @@
+<odoo>
+  <data>
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="spectrum_crm.job_category_window">
+      <field name="name">job_category window</field>
+      <field name="res_model">job.category</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+<record id="followup_method_form" model="ir.ui.view">
+            <field name="name">job_category.form</field>
+            <field name="model">job.category</field>
+            <field name="arch" type="xml">
+                <form string="job_category crm">
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+
+    <!-- menu categories -->
+
+
+    <!-- actions -->
+
+    <menuitem name="job category" id="spectrum_crm.job_category_list" parent="contacts.res_partner_menu_config"
+              action="spectrum_crm.job_category_window"/>
+    
+  </data>
+</odoo>

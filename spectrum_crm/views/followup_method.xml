@@ -1,0 +1,47 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <!-- <record model="ir.ui.view" id="spectrum_crm.followup_method_list">
+      <field name="name">followup method list</field>
+      <field name="model">followup.method</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+ -->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="spectrum_crm.followup_method_window">
+      <field name="name">followup_method window</field>
+      <field name="res_model">followup.method</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+<record id="followup_method_form" model="ir.ui.view">
+            <field name="name">followup_method.form</field>
+            <field name="model">followup.method</field>
+            <field name="arch" type="xml">
+                <form string="division crm">
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+
+    <!-- menu categories -->
+
+
+    <!-- actions -->
+
+    <menuitem name="followup method" id="spectrum_crm.followup_method_list" parent="contacts.res_partner_menu_config"
+              action="spectrum_crm.followup_method_window"/>
+    
+  </data>
+</odoo>

@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+
+<!--         create group for user can create division-->
+         <record id="admin_create_division" model="res.groups">
+        <field name="name">create division in crm</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+        <record model="ir.ui.view" id="spectrum_crm.division_list">
+            <field name="name">division list</field>
+            <field name="model">division.crm</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="sub_division" widget="many2many_tags" />
+                </tree>
+            </field>
+        </record>
+
+           <record id="spectrum_crm_form" model="ir.ui.view">
+            <field name="name">division.crm</field>
+            <field name="model">division.crm</field>
+            <field name="arch" type="xml">
+                <form string="division crm">
+                    <group>
+                        <field name="name"/>
+                        <field name="sub_division"/>
+
+                    </group>
+                </form>
+            </field>
+        </record>
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="spectrum_crm.division_action_window">
+            <field name="name">division crm</field>
+            <field name="res_model">division.crm</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+
+
+        <!-- menu categories -->
+
+
+        <!-- actions -->
+
+        <menuitem name="Program" id="spectrum_crm.division_menu_1_list" parent="spectrum_crm.menu_1"
+                  action="spectrum_crm.division_action_window" sequence="1"/>
+
+    </data>
+</odoo>

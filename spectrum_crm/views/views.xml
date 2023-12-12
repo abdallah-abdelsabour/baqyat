@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="spectrum_crm.list">
+            <field name="name">spectrum_crm list</field>
+            <field name="model">division.crm</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="sub_division" widget="one2many_list"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="spectrum_crm.action_window">
+            <field name="name">spectrum_crm window</field>
+            <field name="res_model">division.crm</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="spectrum_crm_form" model="ir.ui.view">
+            <field name="name">spectrum_crm.form</field>
+            <field name="model">division.crm</field>
+            <field name="arch" type="xml">
+                <form string="spectrum crm">
+                    <group>
+                        <field name="name"/>
+
+                    </group>
+                    <field name="sub_division"/>
+
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Top menu item -->
+
+        <menuitem name="spectrum_crm" id="spectrum_crm.menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="programs" id="spectrum_crm.menu_1" parent="contacts.menu_contacts"/>
+
+        <!-- actions -->
+
+        <menuitem name="Main Program" id="spectrum_crm.menu_1_list" parent="spectrum_crm.menu_1"
+                  action="spectrum_crm.action_window" sequence="2"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="crm_customizations_form" model="ir.ui.view">
+        <field name="name">crm form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//div[@class='oe_title']" position="replace">
+                <div class="oe_title">
+                    <label for="name" string="Lead" attrs="{'invisible': [('type', '=', 'opportunity')]}"/>
+                    <label for="name" attrs="{'invisible': [('type', '=', 'lead')]}"/>
+                    <h1>
+                        <field class="text-break" name="name" placeholder="e.g. Product Pricing"/>
+                    </h1>
+                    <h2 class="o_row no-gutters align-items-end">
+                        <div class="col" attrs="{'invisible': [('type', '=', 'lead')]}"
+                             groups="crm.group_use_recurring_revenues">
+                            <div class="o_row">
+                                <field name="recurring_revenue" class="pr-2 oe_inline" widget="monetary"
+                                       options="{'currency_field': 'company_currency'}"/>
+                            </div>
+                        </div>
+                        <div class="col" attrs="{'invisible': [('type', '=', 'lead')]}"
+                             groups="crm.group_use_recurring_revenues">
+                            <div class="o_row">
+                                <field name="recurring_plan" class="oe_inline" placeholder="E.g. Monthly"
+                                       attrs="{'required': [('recurring_revenue', '!=', 0)]}"
+                                       options="{'no_create': True, 'no_open': True}"/>
+                                <span class="oe_grey p-2">at</span>
+                            </div>
+                        </div>
+                        <!-- <div class="col">
+                            <div class="oe_edit_only d-flex align-items-center">
+                                <label for="probability"/>
+                                <button class="btn btn-link" name="action_set_automated_probability" type="object"
+                                        attrs="{'invisible': [('is_automated_probability', '=', True)]}">
+                                    <i class="fa fa-gear" role="img" title="Switch to automatic probability" aria-label="Switch to automatic probability"></i>
+                                </button>
+                                <small class="oe_grey h6 mb0" attrs="{'invisible': [('is_automated_probability', '=', True)]}">
+                                    <field class="mb0" name="automated_probability" force_save="1"/> %%
+                                </small>
+                            </div>
+                            <div id="probability" class="o_row d-flex">
+                                <field name="is_automated_probability" invisible="1"/>
+                                <field name="probability" widget="float" class="oe_inline"/>
+                                <span class="oe_grey"> %%</span>
+                            </div>
+                        </div> -->
+                        <field name="probability" invisible="1"/>
+
+                    </h2>
+                </div>
+            </xpath>
+
+            <xpath expr="//page[@name='internal_notes']" position="before">
+                <page name="Opportunity Information" string="Opportunity Information">
+                    <!-- New page contents here -->
+                    <group>
+
+                        <group>
+                            <field name="donation_type"/>
+                        </group>
+
+                        <group>
+                            <span class="oe_inline o_form_label mr-3 ml-5 oe_edit_only"
+                                  groups="base.group_multi_currency"
+                                  attrs="{'invisible': [('donation_type', '!=', 'Cash')]}"
+                            >in
+                            </span>
+                            <field name="currency_id"
+                                   groups="base.group_multi_currency"
+                                   attrs="{'invisible': [('donation_type', '!=', 'Cash')]}"
+                            />
+                            <field name="cheque_no"
+                                   attrs="{'invisible': [('donation_type', '!=', 'Cheque')]}"
+                            />
+                            <field name="cheque_date"
+                                   attrs="{'invisible': [('donation_type', '!=', 'Cheque')]}"
+                            />
+                            <field name="cheque_amount" widget='monetary' options="{'currency_field': 'currency_id'}"
+                                   attrs="{'invisible': [('donation_type', '!=', 'Cheque')]}"
+                            />
+                            <span class="oe_inline o_form_label mr-3 ml-5 oe_edit_only"
+                                  groups="base.group_multi_currency"
+                                  attrs="{'invisible': [('donation_type', '!=', 'Cheque')]}"
+                            >in
+                            </span>
+                            <field name="currency_id"
+                                   groups="base.group_multi_currency"
+                                   attrs="{'invisible': [('donation_type', '!=', 'Cheque')]}"
+                            />
+                            <field name="cheque_due_date"
+                                   attrs="{'invisible': [('donation_type', '!=', 'Cheque')]}"
+                            />
+                            <field name="bank_name"
+                                   attrs="{'invisible': [('donation_type', '!=', 'Cheque')]}"
+                            />
+                            <field name="in_kind_donation"
+                                   attrs="{'invisible': [('donation_type', '!=', 'In-Kind')]}"
+                            />
+                            <field name="in_kind_donation_value"
+                                   attrs="{'invisible': [('donation_type', '!=', 'In-Kind')]}"
+                            />
+                            <field name="cash_amount"
+                                   attrs="{'invisible': [('donation_type', '!=', 'Cash')]}"
+                            />
+                            <field name="cash_amount"
+                                   attrs="{'invisible': [('donation_type', '!=', 'on-Site')]}"
+                            />
+                            <field name="address_type"/>
+                        </group>
+                        <group string="Collection">
+                            <field name="receipt_book_no"/>
+                            <field name="receipt_book"
+                                   attrs="{'required': [('receipt_book_no', '!=', False)]}"
+                            />
+                            <field name="cancel_reason" attrs="{'required': [('stage_id', '=', '4')]}" > </field>
+
+                        </group>
+                    </group>
+
+                </page>
+            </xpath>
+
+            <xpath expr="//field[@name='date_deadline']" position="replace">
+                <field name="date_deadline" string="Donation Preferred Date"/>
+                <field name="source_id"/>
+                <field name="referred"/>
+
+                <field name="l_status"/>
+
+
+            </xpath>
+
+
+            <!--    <xpath expr="//field[@name='tag_ids']" position="replace">-->
+            <!--    <field name="tag_ids" string="Program" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>-->
+            <!--        </xpath>-->
+
+
+        </field>
+    </record>
+</odoo>

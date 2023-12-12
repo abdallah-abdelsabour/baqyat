@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_division_crm_user,division.crm,model_division_crm,base.group_user,1,0,0,0
+access_division_crm_admin,division.crm,model_division_crm,spectrum_crm.admin_create_division,1,1,1,1
+access_sub_division_crm_user,sub_division.crm,model_sub_division_crm,base.group_user,1,0,0,0
+access_sub_division_crm_admin,sub_division.crm,model_sub_division_crm,spectrum_crm.admin_create_division,1,1,1,1
+access_followup_method,followup.method,model_followup_method,base.group_user,1,1,1,1
+access_res_partner,res.partner,model_res_partner,base.group_user,1,1,1,1
+access_job_category,job.category,model_job_category,base.group_user,1,1,1,1
