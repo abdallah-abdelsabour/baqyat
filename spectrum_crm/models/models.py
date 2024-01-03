@@ -129,7 +129,7 @@ class ResPartner(models.Model):
 
     @api.model
     def create(self, vals):
-        mobiles = ['phone', 'phone2', 'mobile', 'mobile2', 'mobile3']
+        mobiles = [ 'phone2', 'mobile', 'mobile2', 'mobile3']
 
 
 

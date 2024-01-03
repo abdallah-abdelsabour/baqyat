@@ -142,7 +142,7 @@
                             <field name="expected_donation" string="Expected donation" readonly="True"/>
                         </group>
                         <group>
-                            <field name="l_status" readonly="True"/>
+<!--                            <field name="l_status" readonly="True"/>-->
                         </group>
 
                           <group string="Donation Dist">

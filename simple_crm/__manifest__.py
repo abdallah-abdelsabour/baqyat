@@ -23,6 +23,7 @@
     'depends': ['base','crm','s_crm'],
 
     # always loaded
+
     'data': [
         'security/ir.model.access.csv',
         'views/crm.xml',

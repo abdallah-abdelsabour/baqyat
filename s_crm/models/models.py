@@ -130,7 +130,7 @@ class Contactmodel(models.Model):
     @api.model
     def create(self, vals):
         phone_count = 0
-        for phone in ['phone', 'phone2', 'mobile', 'mobile2', 'mobile3']:
+        for phone in ['phone2', 'mobile', 'mobile2', 'mobile3']:
             if vals[phone]:
                 phone_count += 1
         if not phone_count:
