@@ -78,6 +78,10 @@
                             <field name="d_redemption"/>
                             <field name="d_Shrouds"></field>
                             <field name="d_Gaza"></field>
+                            <field name="d_a"></field>
+                            <field name="d_b"></field>
+                            <field name="d_c"></field>
+                            <field name="d_d"></field>
                         </group>
 
 
@@ -129,6 +133,13 @@
             <field name="model">crm.lead</field>
             <field name="inherit_id" ref="crm.crm_lead_view_form"/>
             <field name="arch" type="xml">
+                
+                <xpath expr="//field[@name='partner_id']"  position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='phone']"  position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
                 <xpath expr="//notebook" position="inside">
                     <page string="Division info" readonly="True">
                         <group>
@@ -156,6 +167,11 @@
                             <field name="d_Blankets" readonly="1"  attrs="{'invisible': [('d_Blankets', '&lt;',1)]}"></field>
                             <field name="d_food" readonly="1" attrs="{'invisible': [('d_food', '&lt;',1)]}"></field>
                             <field name="d_marriage" readonly="1"  attrs="{'invisible': [('d_marriage', '&lt;',1)]}"></field>
+                            <field name="d_a" readonly="1"  attrs="{'invisible': [('d_a', '&lt;',1)]}"></field>
+                            <field name="d_b" readonly="1"  attrs="{'invisible': [('d_b', '&lt;',1)]}"></field>
+                            <field name="d_c" readonly="1"  attrs="{'invisible': [('d_c', '&lt;',1)]}"></field>
+                            <field name="d_d" readonly="1"  attrs="{'invisible': [('d_d', '&lt;',1)]}"></field>
+
                         </group>
                         <group>
                             <field name="d_water" readonly="1" attrs="{'invisible': [('d_water', '&lt;',1)]}"></field>

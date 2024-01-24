@@ -12,15 +12,10 @@ class SimpleCrm(models.TransientModel):
     # program = fields.Many2one('division.crm')
     # sub_program = fields.Many2one('sub_division.crm')
     division = fields.Selection([
-        ('شركات', 'شركات'),
-        ('بنوك', 'بنوك'),
-        ('جامعات', 'جامعات'),
-        ('مدارس', 'مدارس'),
-        ('نوادي', 'نوادي'),
-        ('فنادق', 'فنادق'),
-        ('مؤسسات', 'مؤسسات'),
-        ('متطوعين', 'متطوعين'),
-        ('افراد', 'افراد'),
+        ('صدقة', 'صدقة'),
+        ('صدقة جارية', 'صدقة جارية'),
+        ('زكاة', 'زكاة'),
+
     ])
     sub_division = fields.Selection([
         ('شركات', 'شركات'),
@@ -47,41 +42,50 @@ class SimpleCrm(models.TransientModel):
     d_redemption = fields.Float(string='كفارة يمين')
     d_Shrouds = fields.Float(string='أكفان')
     d_Gaza = fields.Float(string='غزة')
+    d_a = fields.Float(string='زهايمر')
+    d_b = fields.Float(string='المستشفى أجهزة طبيه ')
+    d_c = fields.Float(string='أطراف صناعيه')
+    d_d = fields.Float(string='صكوك')
+
 
     def save(self):
-        print('save')
-        # update_contact_with_new info
-        contact = self.env['res.partner'].search([('id', '=', self.contact.id)])
-        if contact:
-            contact.write({
+            print('save')
+            # update_contact_with_new info
+            contact = self.env['res.partner'].search([('id', '=', self.contact.id)])
+            # if contact:
+            #     contact.write({
+            #
+            #         'program': self.division,
+            #         'sub_program': self.sub_division,
+            #     })
 
-                'program': self.division,
-                'sub_program': self.sub_division,
+            opp = self.env['crm.lead'].create({
+                'user_id': self.env.user.id,
+                'phone':  self.contact.phone2 or self.contact.mobile2 or  self.contact.mobile3,
+                'partner_id': self.contact.id,
+                'name': self.contact.name + "'s opportunity",
+                # 'date_deadline':self.donation_preferred,
+                "division": self.division,
+                "sub_division": self.sub_division,
+                "expected_donation": self.expected_donation,
+                "d_electricty": self.d_electricty,
+                "d_celling": self.d_celling,
+                "d_drainage": self.d_drainage,
+                "d_Blankets": self.d_Blankets,
+                "d_food": self.d_food,
+                "d_marriage": self.d_marriage,
+                "d_water": self.d_water,
+                "d_Orphan": self.d_Orphan,
+                "d_redemption": self.d_redemption,
+                "d_Shrouds": self.d_Shrouds,
+                "d_Gaza": self.d_Gaza,
+                "d_a": self.d_a,
+                "d_b": self.d_b,
+                "d_c": self.d_c,
+                "d_d": self.d_d,
+
+
             })
-
-        opp = self.env['crm.lead'].create({
-            'user_id': self.env.user.id,
-            'phone': self.contact.phone,
-            'partner_id': self.contact.id,
-            'name': self.contact.name + "'s opportunity",
-            # 'date_deadline':self.donation_preferred,
-            "division": self.division,
-            "sub_division": self.sub_division,
-            "expected_donation": self.expected_donation,
-            "d_electricty": self.d_electricty,
-            "d_celling": self.d_celling,
-            "d_drainage": self.d_drainage,
-            "d_Blankets": self.d_Blankets,
-            "d_food": self.d_food,
-            "d_marriage": self.d_marriage,
-            "d_water": self.d_water,
-            "d_Orphan": self.d_Orphan,
-            "d_redemption": self.d_redemption,
-            "d_Shrouds": self.d_Shrouds,
-            "d_Gaza": self.d_Gaza,
-
-
-        })
 
     def cancel(self):
         print('cancle')
@@ -186,15 +190,10 @@ class CrmLead(models.Model):
     #             raise UserError(_("cant collect without cash or in_kind amount"))
 
     division = fields.Selection([
-        ('شركات', 'شركات'),
-        ('بنوك', 'بنوك'),
-        ('جامعات', 'جامعات'),
-        ('مدارس', 'مدارس'),
-        ('نوادي', 'نوادي'),
-        ('فنادق', 'فنادق'),
-        ('مؤسسات', 'مؤسسات'),
-        ('متطوعين', 'متطوعين'),
-        ('افراد', 'افراد'),
+        ('صدقة', 'صدقة'),
+        ('صدقة جارية', 'صدقة جارية'),
+        ('زكاة', 'زكاة'),
+
     ])
     sub_division = fields.Selection([
         ('شركات', 'شركات'),
@@ -222,6 +221,10 @@ class CrmLead(models.Model):
     d_redemption = fields.Float(string='كفارة يمين')
     d_Shrouds = fields.Float(string='أكفان')
     d_Gaza = fields.Float(string='غزة')
+    d_a = fields.Float(string='زهايمر')
+    d_b = fields.Float(string='المستشفى أجهزة طبيه ')
+    d_c = fields.Float(string='أطراف صناعيه')
+    d_d = fields.Float(string='صكوك')
 
     # @api.model
     # def create(self,vals):

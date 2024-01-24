@@ -120,12 +120,12 @@
                                 <!--            <field name="sub_program" />-->
                                 <field name="company_type_crm" attrs="{'invisible': [('is_company','=', False)]}"/>
                                 <field name="company_size" attrs="{'invisible': [('is_company','=', False)]}"/>
-                                <field name="phone" widget="phone"/>
-                                <field name="phone2" widget="phone"/>
-                                <field name="mobile" widget="phone"/>
-                                <field name="mobile2"/>
-                                <field name="mobile3"/>
-                                <field name="international_phone"/>
+                                <field name="phone" widget="phone" attrs="{'readonly':[(1,'=',1)]}"/>
+                                <field name="phone2" widget="phone" />
+                                <field name="mobile" widget="phone" attrs="{'readonly':[(1,'=',1)]}"/>
+                                <field name="mobile2" />
+                                <field name="mobile3" />
+                                <field name="international_phone" attrs="{'readonly':[(1,'=',1)]}"/>
                                 <field name="user_ids" invisible="1"/>
                                 <field name="email" widget="email" context="{'gravatar_image': True}"
                                        attrs="{'required': [('user_ids','!=', [])]}"/>

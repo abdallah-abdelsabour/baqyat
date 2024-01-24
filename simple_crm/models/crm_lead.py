@@ -23,15 +23,10 @@ class CrmLead(models.Model):
         ("on-Site", "on-Site"),
     ])
     division = fields.Selection([
-        ('شركات', 'شركات'),
-        ('بنوك', 'بنوك'),
-        ('جامعات', 'جامعات'),
-        ('مدارس', 'مدارس'),
-        ('نوادي', 'نوادي'),
-        ('فنادق', 'فنادق'),
-        ('مؤسسات', 'مؤسسات'),
-        ('متطوعين', 'متطوعين'),
-        ('افراد', 'افراد'), ], string=' division')
+        ('صدقة', 'صدقة'),
+        ('صدقة جارية', 'صدقة جارية'),
+        ('زكاة', 'زكاة')
+       ], string=' division')
 
     sub_division = fields.Selection([
         ('شركات', 'شركات'),
@@ -85,6 +80,10 @@ class CrmLead(models.Model):
     d_redemption=fields.Float(string = 'كفارة يمين')
     d_Shrouds =fields.Float(string = 'أكفان')
     d_Gaza = fields.Float(string = 'غزة')
+    d_a = fields.Float(string='زهايمر')
+    d_b = fields.Float(string='المستشفى أجهزة طبيه ')
+    d_c = fields.Float(string='أطراف صناعيه')
+    d_d = fields.Float(string='صكوك')
 
 
 
