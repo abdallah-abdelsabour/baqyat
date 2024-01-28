@@ -60,9 +60,12 @@ class SimpleCrm(models.TransientModel):
             #     })
 
             opp = self.env['crm.lead'].create({
+                'partner_id':self.contact.id or None,
                 'user_id': self.env.user.id,
                 'phone':  self.contact.phone2 or self.contact.mobile2 or  self.contact.mobile3,
-                'partner_id': self.contact.id,
+                'phone2':  self.contact.phone2 ,
+                'mobile2':  self.contact.mobile2,
+                'mobile3':self.contact.mobile3,
                 'name': self.contact.name + "'s opportunity",
                 # 'date_deadline':self.donation_preferred,
                 "division": self.division,
@@ -83,6 +86,7 @@ class SimpleCrm(models.TransientModel):
                 "d_b": self.d_b,
                 "d_c": self.d_c,
                 "d_d": self.d_d,
+
 
 
             })
@@ -225,6 +229,9 @@ class CrmLead(models.Model):
     d_b = fields.Float(string='المستشفى أجهزة طبيه ')
     d_c = fields.Float(string='أطراف صناعيه')
     d_d = fields.Float(string='صكوك')
+    phone2 = fields.Char('phone2')
+    mobile2 = fields.Char('mobile2')
+    mobile3 = fields.Char('mobile3')
 
     # @api.model
     # def create(self,vals):

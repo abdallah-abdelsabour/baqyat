@@ -133,12 +133,19 @@
             <field name="model">crm.lead</field>
             <field name="inherit_id" ref="crm.crm_lead_view_form"/>
             <field name="arch" type="xml">
-                
-                <xpath expr="//field[@name='partner_id']"  position="attributes">
+
+                <xpath expr="//field[@name='partner_id']" position="attributes">
                     <attribute name="readonly">1</attribute>
                 </xpath>
-                <xpath expr="//field[@name='phone']"  position="attributes">
+                <xpath expr="//field[@name='phone']" position="attributes">
                     <attribute name="readonly">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="before">
+                    <field name="phone2" string="Phone2"  attrs="{'readonly': [(1, '=', 1)]}"/>
+                    <field name="mobile2" string="mobile2" attrs="{'readonly': [(1, '=', 1)]}" />
+                    <field name="mobile3" string=" mobile3" attrs="{'readonly': [(1, '=', 1)]}"/>
+
+
                 </xpath>
                 <xpath expr="//notebook" position="inside">
                     <page string="Division info" readonly="True">
@@ -153,36 +160,45 @@
                             <field name="expected_donation" string="Expected donation" readonly="True"/>
                         </group>
                         <group>
-<!--                            <field name="l_status" readonly="True"/>-->
+                            <!--                            <field name="l_status" readonly="True"/>-->
                         </group>
 
-                          <group string="Donation Dist">
+                        <group string="Donation Dist">
 
 
-                        <group>
+                            <group>
 
-                            <field name="d_electricty" readonly="1"  attrs="{'invisible': [('d_electricty', '&lt;',1)]}"></field>
-                            <field name="d_celling" readonly="1"  attrs="{'invisible': [('d_celling', '&lt;',1)]}"></field>
-                            <field name="d_drainage"  readonly="1" attrs="{'invisible': [('d_drainage', '&lt;',1)]}" ></field>
-                            <field name="d_Blankets" readonly="1"  attrs="{'invisible': [('d_Blankets', '&lt;',1)]}"></field>
-                            <field name="d_food" readonly="1" attrs="{'invisible': [('d_food', '&lt;',1)]}"></field>
-                            <field name="d_marriage" readonly="1"  attrs="{'invisible': [('d_marriage', '&lt;',1)]}"></field>
-                            <field name="d_a" readonly="1"  attrs="{'invisible': [('d_a', '&lt;',1)]}"></field>
-                            <field name="d_b" readonly="1"  attrs="{'invisible': [('d_b', '&lt;',1)]}"></field>
-                            <field name="d_c" readonly="1"  attrs="{'invisible': [('d_c', '&lt;',1)]}"></field>
-                            <field name="d_d" readonly="1"  attrs="{'invisible': [('d_d', '&lt;',1)]}"></field>
+                                <field name="d_electricty" readonly="1"
+                                       attrs="{'invisible': [('d_electricty', '&lt;',1)]}"></field>
+                                <field name="d_celling" readonly="1"
+                                       attrs="{'invisible': [('d_celling', '&lt;',1)]}"></field>
+                                <field name="d_drainage" readonly="1"
+                                       attrs="{'invisible': [('d_drainage', '&lt;',1)]}"></field>
+                                <field name="d_Blankets" readonly="1"
+                                       attrs="{'invisible': [('d_Blankets', '&lt;',1)]}"></field>
+                                <field name="d_food" readonly="1" attrs="{'invisible': [('d_food', '&lt;',1)]}"></field>
+                                <field name="d_marriage" readonly="1"
+                                       attrs="{'invisible': [('d_marriage', '&lt;',1)]}"></field>
+                                <field name="d_a" readonly="1" attrs="{'invisible': [('d_a', '&lt;',1)]}"></field>
+                                <field name="d_b" readonly="1" attrs="{'invisible': [('d_b', '&lt;',1)]}"></field>
+                                <field name="d_c" readonly="1" attrs="{'invisible': [('d_c', '&lt;',1)]}"></field>
+                                <field name="d_d" readonly="1" attrs="{'invisible': [('d_d', '&lt;',1)]}"></field>
+
+                            </group>
+                            <group>
+                                <field name="d_water" readonly="1"
+                                       attrs="{'invisible': [('d_water', '&lt;',1)]}"></field>
+                                <field name="d_Orphan" readonly="1"
+                                       attrs="{'invisible': [('d_Orphan', '&lt;',1)]}"></field>
+                                <field name="d_redemption" readonly="1"
+                                       attrs="{'invisible': [('d_redemption', '&lt;',1)]}"/>
+                                <field name="d_Shrouds" readonly="1"
+                                       attrs="{'invisible': [('d_Shrouds', '&lt;',1)]}"></field>
+                                <field name="d_Gaza" readonly="1" attrs="{'invisible': [('d_Gaza', '&lt;',1)]}"></field>
+                            </group>
+
 
                         </group>
-                        <group>
-                            <field name="d_water" readonly="1" attrs="{'invisible': [('d_water', '&lt;',1)]}"></field>
-                            <field name="d_Orphan" readonly="1"  attrs="{'invisible': [('d_Orphan', '&lt;',1)]}"></field>
-                            <field name="d_redemption" readonly="1" attrs="{'invisible': [('d_redemption', '&lt;',1)]}"/>
-                            <field name="d_Shrouds" readonly="1" attrs="{'invisible': [('d_Shrouds', '&lt;',1)]}"></field>
-                            <field name="d_Gaza" readonly="1" attrs="{'invisible': [('d_Gaza', '&lt;',1)]}"></field>
-                        </group>
-
-
-                    </group>
 
 
                     </page>

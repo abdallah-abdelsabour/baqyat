@@ -111,11 +111,11 @@
                             <field name="address_type"/>
                         </group>
                         <group string="Collection">
-                            <field name="receipt_book_no"/>
+                            <field name="receipt_book_no" attrs="{'required': [(1,'=', 1)]}"/>
                             <field name="receipt_book"
                                    attrs="{'required': [('receipt_book_no', '!=', False)]}"
                             />
-                            <field name="cancel_reason" attrs="{'required': [('stage_id', '=', '4')]}" > </field>
+                            <field name="cancel_reason" attrs="{'required': [('stage_id', '=', '4')]}"></field>
 
                         </group>
                     </group>
