@@ -136,12 +136,12 @@ class ResPartner(models.Model):
         for item in mobiles :
 
             get_phone = self.env['res.partner'].search(['|','|','|','|',
-                                                        ('phone','=',vals[item]),
-                                                        ('phone2','=',vals[item]),
-                                                        ('mobile','=',vals[item]),
-                                                        ('mobile3','=',vals[item]),
-                                                        ('mobile2','=',vals[item])])
-            if get_phone and vals[item] :
+                                                        ('phone','=',vals.get(item,False)),
+                                                        ('phone2','=',vals.get(item,False)),
+                                                        ('mobile','=',vals.get(item,False)),
+                                                        ('mobile3','=',vals.get(item,False)),
+                                                        ('mobile2','=',vals.get(item,False))])
+            if get_phone and vals.get(item,False) :
                 raise exceptions.ValidationError("phone number already exist before  ")
         # handle contact sequence for user
         # check if user has sequence befor
@@ -220,3 +220,4 @@ class ResPartner(models.Model):
         _description = 'job.category'
 
         name = fields.Char(required=True)
+

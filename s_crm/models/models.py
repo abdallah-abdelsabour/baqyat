@@ -135,7 +135,7 @@ class Contactmodel(models.Model):
     def create(self, vals):
         phone_count = 0
         for phone in ['phone2', 'mobile', 'mobile2', 'mobile3']:
-            if vals[phone]:
+            if vals.get(phone,False):
                 phone_count += 1
         if not phone_count:
             raise UserError(_("contact must have one phone number at lease"))
@@ -231,3 +231,4 @@ class CrmLead(models.Model):
     #     print("create258",vals)
     #     return  super(CrmLead,self).create(vals)
     #
+
